@@ -1,0 +1,37 @@
+[gd_scene load_steps=11 format=3 uid="uid://dxg8lvydjgakf"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_b4grs"]
+[ext_resource type="PackedScene" uid="uid://b73ss6rygi7qr" path="res://assets/objects/plain_mug.glb" id="2_inq1w"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_n0o2y"]
+[ext_resource type="Animation" uid="uid://bediglpx0rj7i" path="res://addons/godot-xr-tools/hands/animations/left/Grip 5.res" id="4_aqnbw"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_dt02v"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_vx2cw"]
+[ext_resource type="Animation" uid="uid://s1vqcxyqcvea" path="res://addons/godot-xr-tools/hands/animations/right/Grip 5.res" id="7_s2yl1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uqviy"]
+size = Vector3(0.12, 0.15, 0.18)
+
+[sub_resource type="Resource" id="Resource_rt5a1"]
+script = ExtResource("5_dt02v")
+closed_pose = ExtResource("4_aqnbw")
+
+[sub_resource type="Resource" id="Resource_2hprc"]
+script = ExtResource("5_dt02v")
+closed_pose = ExtResource("7_s2yl1")
+
+[node name="PickableObject" instance=ExtResource("1_b4grs")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22675, 0.326873, 0.406956)
+shape = SubResource("BoxShape3D_uqviy")
+
+[node name="Sketchfab_Scene" parent="." index="1" instance=ExtResource("2_inq1w")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.22564, 0.242285, 0.429619)
+
+[node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("3_n0o2y")]
+transform = Transform3D(-0.232834, 0, 0.972516, 0, 1, 0, -0.972516, 0, -0.232834, 0.150613, 0.36297, 0.517472)
+hand_pose = SubResource("Resource_rt5a1")
+
+[node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("6_vx2cw")]
+transform = Transform3D(0.341594, 0, 0.939848, 0, 1, 0, -0.939848, 0, 0.341594, 0.144116, 0.35686, 0.297351)
+hand_pose = SubResource("Resource_2hprc")

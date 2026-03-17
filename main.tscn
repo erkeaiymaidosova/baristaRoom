@@ -1,0 +1,162 @@
+[gd_scene load_steps=18 format=3 uid="uid://dm78apxngbjk4"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_l2vvu"]
+[ext_resource type="PackedScene" uid="uid://c2yi7swxpq1lp" path="res://assets/objects/room.glb" id="1_qhkui"]
+[ext_resource type="PackedScene" uid="uid://q7slw6xu07p3" path="res://assets/objects/table.glb" id="2_6b2or"]
+[ext_resource type="PackedScene" uid="uid://yhuguujydron" path="res://assets/objects/window.glb" id="3_33rmu"]
+[ext_resource type="PackedScene" uid="uid://bnkdrm77b8jbr" path="res://assets/objects/sofa_web.glb" id="4_y3ygl"]
+[ext_resource type="PackedScene" uid="uid://dfb6x1fyqbrip" path="res://assets/objects/chair.glb" id="5_2v16d"]
+[ext_resource type="PackedScene" uid="uid://cy8juojkfidke" path="res://assets/objects/chandelier.glb" id="6_uanxl"]
+[ext_resource type="PackedScene" uid="uid://cg144phu14tdm" path="res://assets/objects/coffee_grinder.glb" id="7_ta0b2"]
+[ext_resource type="PackedScene" uid="uid://bonmqqsjky7j4" path="res://assets/objects/coffee_machine.glb" id="8_oydc1"]
+[ext_resource type="PackedScene" uid="uid://dxg8lvydjgakf" path="res://pickable_object.tscn" id="9_rjc7c"]
+[ext_resource type="PackedScene" uid="uid://b73wjq5xhy604" path="res://xr_origin_3d.tscn" id="10_jijsd"]
+[ext_resource type="Script" path="res://moneycollect.gd" id="12_ilyh5"]
+[ext_resource type="PackedScene" uid="uid://cnudwtfprpfbu" path="res://assets/objects/5000_rubles.glb" id="12_ouuu3"]
+[ext_resource type="PackedScene" uid="uid://blimul1koncr3" path="res://assets/objects/girl_flossing_dance_free_animation.glb" id="16_wy1oy"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bq8kq"]
+height = 0.3
+radius = 0.09
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_45ei8"]
+height = 0.5
+radius = 0.09
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_iysiy"]
+height = 0.3
+radius = 0.09
+
+[node name="main" type="Node3D"]
+script = ExtResource("1_l2vvu")
+
+[node name="room" parent="." instance=ExtResource("1_qhkui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466515, -1.19209e-07, 0.158699)
+
+[node name="table" parent="." instance=ExtResource("2_6b2or")]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 1.47346, 0.116561, -4.40296)
+
+[node name="window2" parent="." instance=ExtResource("3_33rmu")]
+transform = Transform3D(-6.55671e-08, 5.2318e-16, 1.5, 5.2318e-16, 1.5, -5.2318e-16, -1.5, 5.2318e-16, -6.55671e-08, 7.07667, 1.42508, 3.49692)
+
+[node name="window" parent="." instance=ExtResource("3_33rmu")]
+transform = Transform3D(-6.55671e-08, 5.2318e-16, 1.5, 5.2318e-16, 1.5, -5.2318e-16, -1.5, 5.2318e-16, -6.55671e-08, 6.99665, 1.46442, -2.37743)
+
+[node name="sofa" type="Node3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, -3.89913, 0.27783, -5.46022)
+
+[node name="Sketchfab_Scene" parent="sofa" instance=ExtResource("4_y3ygl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.758628, 0, -5.87198)
+
+[node name="chair2" parent="." instance=ExtResource("5_2v16d")]
+transform = Transform3D(0.49611, 0, 0.86826, 0, 1, 0, -0.86826, 0, 0.49611, 0.396056, 0.33319, -4.52194)
+
+[node name="chair" parent="." instance=ExtResource("5_2v16d")]
+transform = Transform3D(0.540123, 0, -0.841586, 0, 1, 0, 0.841586, 0, 0.540123, 2.88878, 0.211223, -4.51464)
+
+[node name="chandelier" type="Node3D" parent="."]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, 5.25784, 0)
+
+[node name="Sketchfab_Scene" parent="chandelier" instance=ExtResource("6_uanxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94959, 0, 1.38935)
+
+[node name="coffeegrinder" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.149779, 1.06189, 1.17418)
+
+[node name="coffeegrinder2" parent="coffeegrinder" instance=ExtResource("7_ta0b2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63048, 2.17525, 1.63177)
+
+[node name="coffeemachine" type="Node3D" parent="."]
+transform = Transform3D(-0.00127853, 0, -0.00890872, 0, 0.009, 0, 0.00890872, 0, -0.00127853, -1.30046, 2.1404, 5.58596)
+
+[node name="Sketchfab_Scene" parent="coffeemachine" instance=ExtResource("8_oydc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46936, 0, 12.2965)
+
+[node name="PickableObject" parent="." instance=ExtResource("9_rjc7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.21803, 1.90464, 1.76483)
+
+[node name="XROrigin3D" parent="." instance=ExtResource("10_jijsd")]
+transform = Transform3D(0.0448052, 0, -0.998996, 0, 1, 0, 0.998996, 0, 0.0448052, 0.394114, 2.66474, -0.439451)
+
+[node name="table2" parent="." instance=ExtResource("2_6b2or")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28083, 0.494399, -0.364827)
+
+[node name="chair3" parent="." instance=ExtResource("5_2v16d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.81997, 0.295705, -1.13936)
+
+[node name="banknote1" type="Area3D" parent="."]
+script = ExtResource("12_ilyh5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="banknote1"]
+transform = Transform3D(-4.37114e-08, 1, 3.48787e-16, -1, -4.37114e-08, -3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 1.62072, 1.58388, -3.86641)
+shape = SubResource("CylinderShape3D_bq8kq")
+
+[node name="banknote" parent="banknote1" instance=ExtResource("12_ouuu3")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.59755, 1.57708, -3.86971)
+
+[node name="banknote22" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82884, 0)
+script = ExtResource("12_ilyh5")
+
+[node name="banknote2" parent="banknote22" instance=ExtResource("12_ouuu3")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 4.85385, 1.95219, -0.158907)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="banknote22"]
+transform = Transform3D(-0.0132293, 0.999913, 4.37076e-08, -1.5246e-23, -4.37114e-08, 1, 0.999913, 0.0132293, 5.7827e-10, 4.854, 1.952, -0.159)
+shape = SubResource("CylinderShape3D_45ei8")
+
+[node name="banknote33" type="Area3D" parent="."]
+script = ExtResource("12_ilyh5")
+
+[node name="banknote3" parent="banknote33" instance=ExtResource("12_ouuu3")]
+transform = Transform3D(0.0441616, 0, 0.0897204, 0, 0.1, 0, -0.0897204, 0, 0.0441616, 4.83082, 1.97012, 0.00289793)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="banknote33"]
+transform = Transform3D(0.462492, 0.886624, 3.87556e-08, -2.16339e-15, -4.37114e-08, 1, 0.886624, -0.462492, -2.02162e-08, 4.76473, 1.97, 0.003)
+shape = SubResource("CylinderShape3D_iysiy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MoneyLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "TIPS: 0"
+
+[node name="WinLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Congratulations!
+You finished your shift."
+
+[node name="Girl" parent="." instance=ExtResource("16_wy1oy")]
+transform = Transform3D(-1.44121, 0, -0.901618, 0, 1.7, 0, 0.901618, 0, -1.44121, 1.42607, 0.320884, 2.07039)
+visible = false
+
+[node name="Skeleton3D" parent="Girl/Sketchfab_model/dance_f_flossing_48f_fbx/Object_2/RootNode/rig_CharRoot/Object_6" index="0"]
+bones/3/rotation = Quaternion(-0.00803279, 0.170689, 0.0437568, 0.98432)
+bones/6/rotation = Quaternion(-0.0842755, -0.0381936, -0.0438283, 0.994745)
+bones/7/rotation = Quaternion(0.681158, 0.220145, 0.660103, 0.227649)
+bones/8/position = Vector3(13.3688, 1.77636e-15, 2.84217e-14)
+bones/8/rotation = Quaternion(0.36167, 0.407947, -0.562382, 0.621692)
+bones/9/rotation = Quaternion(1.08294e-17, -3.77289e-17, -0.484579, 0.874748)
+bones/12/position = Vector3(4.19407, -7.62939e-06, 0)
+bones/15/rotation = Quaternion(0.778817, -0.000309237, -0.627251, -0.000250842)
+bones/16/position = Vector3(13.3688, -1.90735e-06, 2.84217e-14)
+bones/16/rotation = Quaternion(-0.111819, -0.272962, 0.251323, 0.92186)
+bones/17/position = Vector3(23.3041, -3.8147e-06, -1.42109e-14)
+bones/17/rotation = Quaternion(-6.30057e-18, 9.14782e-18, -0.0715437, 0.997437)
+bones/22/position = Vector3(3.64034, -1.42109e-14, 3.8147e-06)
+bones/23/rotation = Quaternion(0.157131, 0.987575, 0.00131508, 0.00189533)
+bones/24/rotation = Quaternion(-3.9034e-19, -1.47084e-18, -0.324718, 0.945811)
+bones/25/rotation = Quaternion(-0.183645, -0.0383096, 0.168528, 0.96768)
+bones/26/rotation = Quaternion(0.0013838, 0.00121745, 0.750747, 0.660587)
+bones/27/rotation = Quaternion(0.130104, 0.984452, 0.013245, 0.117264)
+bones/28/rotation = Quaternion(5.85142e-18, 6.47556e-18, -0.267851, 0.96346)
+bones/29/rotation = Quaternion(0.185454, 0.0720812, 0.101891, 0.974695)
+bones/30/rotation = Quaternion(0.0489605, 0.0430805, 0.74915, 0.659182)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.942578, 0.0927306, -0.320854, -0.0104258, 0.952045, 0.30578, 0.333822, 0.291567, -0.89641, -3.61706, 4.40377, 0)
+
+[editable path="Girl"]

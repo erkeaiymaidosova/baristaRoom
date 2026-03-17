@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://b73wjq5xhy604"]
+
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="1_pawo6"]
+[ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="2_j71d5"]
+[ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="3_y8fef"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bbadv"]
+radius = 0.3
+height = 1.7
+
+[node name="XROrigin3D" type="XROrigin3D"]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.862266, 0.506455, 0, -0.506455, 0.862266, 0, 0.34877, 0)
+
+[node name="lefthand" type="XRController3D" parent="."]
+tracker = &"left_hand"
+
+[node name="FunctionPickup" parent="lefthand" instance=ExtResource("1_pawo6")]
+
+[node name="LeftHand" parent="lefthand" instance=ExtResource("2_j71d5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1729, 0, -0.312634)
+
+[node name="righthand" type="XRController3D" parent="."]
+tracker = &"right_hand"
+
+[node name="FunctionPickup" parent="righthand" instance=ExtResource("1_pawo6")]
+
+[node name="RightHand" parent="righthand" instance=ExtResource("3_y8fef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.334303)
+
+[node name="PickupArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0508552, 0.0718495)
+shape = SubResource("CapsuleShape3D_bbadv")
